@@ -14,8 +14,8 @@ logic inline. The same code is unit-tested under `tests/`.
 
 - **One LLM call site.** Only `src/extraction.py` calls a model. Every other
   module is deterministic and LLM-free, which keeps the rule-based and
-  model-based responsibilities separable and testable. This is structural,
-  not conventional: `grep -rL "openai\|mlflow" src/*.py` shows the boundary.
+  model-based responsibilities separable and testable. The boundary is
+  structural: `grep -rL "openai\|mlflow" src/*.py` lists every LLM-free module.
 - **Untrusted content is data, not instructions.** Email and attachment text
   is passed to the model inside a delimited data field, never concatenated
   into the instruction text, and the model is forced into a strict
