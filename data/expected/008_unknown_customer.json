@@ -1,0 +1,59 @@
+{
+  "fixture_id": "008",
+  "fixture_name": "unknown_customer",
+  "description": "Order from a customer absent from ERP master data",
+  "source_email": "data/emails/008_unknown_customer.eml",
+  "attachments": [],
+  "fixture_metadata": {
+    "generated": true,
+    "macro_template_required": false
+  },
+  "expected_extraction": {
+    "intent": "create",
+    "language": "en",
+    "customer": {
+      "customer_id": null,
+      "name": "Sonnenfeld Technik GmbH",
+      "match_type": "none"
+    },
+    "purchase_order_reference": "SF-2026-88",
+    "existing_order_id": null,
+    "requested_delivery_date": null,
+    "line_items": [
+      {
+        "sku": "SKU-100",
+        "quantity": 25,
+        "unit": "EA",
+        "unit_price": "4.50",
+        "currency": "EUR",
+        "source": {
+          "type": "email_body"
+        },
+        "inferred": false,
+        "conflicting_values": []
+      }
+    ],
+    "ambiguities": [
+      "Customer does not resolve to ERP master data"
+    ],
+    "security_flags": [],
+    "provenance": {
+      "email": {
+        "type": "email",
+        "file": "008_unknown_customer.eml",
+        "body": {
+          "type": "email_body"
+        }
+      },
+      "attachments": []
+    }
+  },
+  "expected_workflow": {
+    "outcome": "HUMAN_REVIEW",
+    "reason_codes": [
+      "UNKNOWN_CUSTOMER"
+    ],
+    "erp_write_allowed": false,
+    "recommended_action": null
+  }
+}

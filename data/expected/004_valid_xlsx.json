@@ -1,0 +1,109 @@
+{
+  "fixture_id": "004",
+  "fixture_name": "valid_xlsx",
+  "description": "Valid order workbook with numeric values and cell provenance",
+  "source_email": "data/emails/004_valid_xlsx.eml",
+  "attachments": [
+    "data/attachments/order_valid.xlsx"
+  ],
+  "fixture_metadata": {
+    "generated": true,
+    "macro_template_required": false
+  },
+  "expected_extraction": {
+    "intent": "create",
+    "language": "en",
+    "customer": {
+      "customer_id": "CUST-1001",
+      "name": "Nordwind Bau GmbH",
+      "match_type": "exact"
+    },
+    "purchase_order_reference": "PO-2026-004",
+    "existing_order_id": null,
+    "requested_delivery_date": "2026-02-13",
+    "line_items": [
+      {
+        "sku": "SKU-100",
+        "quantity": 150,
+        "unit": "EA",
+        "unit_price": "4.50",
+        "currency": "EUR",
+        "source": {
+          "type": "xlsx",
+          "file": "order_valid.xlsx",
+          "sheet": "Order",
+          "row": 7
+        },
+        "inferred": false,
+        "conflicting_values": []
+      },
+      {
+        "sku": "SKU-200",
+        "quantity": 20,
+        "unit": "BOX",
+        "unit_price": "12.00",
+        "currency": "EUR",
+        "source": {
+          "type": "xlsx",
+          "file": "order_valid.xlsx",
+          "sheet": "Order",
+          "row": 8
+        },
+        "inferred": false,
+        "conflicting_values": []
+      }
+    ],
+    "ambiguities": [],
+    "security_flags": [],
+    "provenance": {
+      "email": {
+        "type": "email",
+        "file": "004_valid_xlsx.eml",
+        "body": {
+          "type": "email_body"
+        }
+      },
+      "attachments": [
+        {
+          "type": "xlsx",
+          "file": "order_valid.xlsx"
+        }
+      ],
+      "customer": {
+        "type": "xlsx",
+        "file": "order_valid.xlsx",
+        "sheet": "Order",
+        "cell": "B1"
+      },
+      "purchase_order_reference": {
+        "type": "xlsx",
+        "file": "order_valid.xlsx",
+        "sheet": "Order",
+        "cell": "B2"
+      },
+      "requested_delivery_date": {
+        "type": "xlsx",
+        "file": "order_valid.xlsx",
+        "sheet": "Order",
+        "cell": "B3"
+      },
+      "line_items": {
+        "type": "xlsx",
+        "file": "order_valid.xlsx",
+        "sheet": "Order",
+        "cells": "A7:E8"
+      }
+    }
+  },
+  "expected_workflow": {
+    "outcome": "AUTO_CREATE",
+    "reason_codes": [
+      "EXACT_CUSTOMER_MATCH",
+      "EXACT_PRODUCT_MATCH",
+      "PRICE_MATCH",
+      "VALID_CREATE_REQUEST"
+    ],
+    "erp_write_allowed": true,
+    "recommended_action": null
+  }
+}

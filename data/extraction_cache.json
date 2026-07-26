@@ -1,0 +1,642 @@
+{
+  "<fixture-001@nordwind-bau.example>": {
+    "ambiguities": [],
+    "customer_reference": "Nordwind Bau GmbH",
+    "extraction_confidence": 1.0,
+    "intent": "create",
+    "language": "en",
+    "line_items": [
+      {
+        "currency": "EUR",
+        "product_reference": "SKU-100",
+        "quantity": "150",
+        "source_evidence": {
+          "locator": "email_body",
+          "quoted_text": "150 EA of SKU-100 at EUR 4.50 each",
+          "source_type": "email_body"
+        },
+        "unit": "EA",
+        "unit_price": "4.50"
+      },
+      {
+        "currency": "EUR",
+        "product_reference": "SKU-200",
+        "quantity": "20",
+        "source_evidence": {
+          "locator": "email_body",
+          "quoted_text": "20 BOX of SKU-200 at EUR 12.00 per box",
+          "source_type": "email_body"
+        },
+        "unit": "BOX",
+        "unit_price": "12.00"
+      }
+    ],
+    "message_id": "<fixture-001@nordwind-bau.example>",
+    "po_reference": "PO-2026-001",
+    "requested_date": "2026-02-10",
+    "security_flags": [],
+    "target_order_id": null
+  },
+  "<fixture-002@nordwind-bau.example>": {
+    "ambiguities": [],
+    "customer_reference": "Nordwind Bau GmbH",
+    "extraction_confidence": 1.0,
+    "intent": "create",
+    "language": "en",
+    "line_items": [
+      {
+        "currency": null,
+        "product_reference": "SKU-100",
+        "quantity": "150",
+        "source_evidence": {
+          "locator": "page:1",
+          "quoted_text": "150",
+          "source_type": "pdf"
+        },
+        "unit": "EA",
+        "unit_price": "4.50"
+      },
+      {
+        "currency": null,
+        "product_reference": "SKU-200",
+        "quantity": "20",
+        "source_evidence": {
+          "locator": "page:1",
+          "quoted_text": "20",
+          "source_type": "pdf"
+        },
+        "unit": "BOX",
+        "unit_price": "12.00"
+      }
+    ],
+    "message_id": "<fixture-002@nordwind-bau.example>",
+    "po_reference": "PO-2026-002",
+    "requested_date": "2026-02-11",
+    "security_flags": [],
+    "target_order_id": null
+  },
+  "<fixture-003@nordwind-bau.example>": {
+    "ambiguities": [],
+    "customer_reference": "Nordwind Bau GmbH",
+    "extraction_confidence": 1.0,
+    "intent": "create",
+    "language": "en",
+    "line_items": [
+      {
+        "currency": "EUR",
+        "product_reference": "SKU-100",
+        "quantity": "150",
+        "source_evidence": {
+          "locator": "slide:2",
+          "quoted_text": "150\nEA\n4.50",
+          "source_type": "pptx"
+        },
+        "unit": "EA",
+        "unit_price": "4.50"
+      },
+      {
+        "currency": "EUR",
+        "product_reference": "SKU-200",
+        "quantity": "20",
+        "source_evidence": {
+          "locator": "slide:2",
+          "quoted_text": "20\nBOX\n12.00",
+          "source_type": "pptx"
+        },
+        "unit": "BOX",
+        "unit_price": "12.00"
+      }
+    ],
+    "message_id": "<fixture-003@nordwind-bau.example>",
+    "po_reference": "PO-2026-003",
+    "requested_date": "2026-02-12",
+    "security_flags": [],
+    "target_order_id": null
+  },
+  "<fixture-004@nordwind-bau.example>": {
+    "ambiguities": [],
+    "customer_reference": "Nordwind Bau GmbH",
+    "extraction_confidence": 1.0,
+    "intent": "create",
+    "language": "en",
+    "line_items": [
+      {
+        "currency": "EUR",
+        "product_reference": "SKU-100",
+        "quantity": "150",
+        "source_evidence": {
+          "locator": "sheet:Order!cell:A7",
+          "quoted_text": "SKU-100",
+          "source_type": "xlsx"
+        },
+        "unit": "EA",
+        "unit_price": "4.5"
+      },
+      {
+        "currency": "EUR",
+        "product_reference": "SKU-200",
+        "quantity": "20",
+        "source_evidence": {
+          "locator": "sheet:Order!cell:A8",
+          "quoted_text": "SKU-200",
+          "source_type": "xlsx"
+        },
+        "unit": "BOX",
+        "unit_price": "12"
+      }
+    ],
+    "message_id": "<fixture-004@nordwind-bau.example>",
+    "po_reference": "PO-2026-004",
+    "requested_date": "2026-02-13",
+    "security_flags": [],
+    "target_order_id": null
+  },
+  "<fixture-005@nordwind-bau.example>": {
+    "ambiguities": [],
+    "customer_reference": "Nordwind Bau GmbH",
+    "extraction_confidence": 1.0,
+    "intent": "create",
+    "language": "de",
+    "line_items": [
+      {
+        "currency": "EUR",
+        "product_reference": "SKU-100",
+        "quantity": "1500",
+        "source_evidence": {
+          "locator": "page:1",
+          "quoted_text": "1.500 St\u00fcck",
+          "source_type": "pdf"
+        },
+        "unit": "EA",
+        "unit_price": "4.50"
+      }
+    ],
+    "message_id": "<fixture-005@nordwind-bau.example>",
+    "po_reference": "PO-2026-005",
+    "requested_date": "2026-02-14",
+    "security_flags": [],
+    "target_order_id": null
+  },
+  "<fixture-006@nordwind-bau.example>": {
+    "ambiguities": [],
+    "customer_reference": "Nordwind Bau GmbH",
+    "extraction_confidence": 0.9,
+    "intent": "create",
+    "language": "en",
+    "line_items": [
+      {
+        "currency": "EUR",
+        "product_reference": "SKU-100",
+        "quantity": null,
+        "source_evidence": {
+          "locator": "sheet:Order!cell:A7",
+          "quoted_text": "SKU-100",
+          "source_type": "xlsx"
+        },
+        "unit": "EA",
+        "unit_price": "4.5"
+      }
+    ],
+    "message_id": "<fixture-006@nordwind-bau.example>",
+    "po_reference": "PO-2026-006",
+    "requested_date": "2026-02-16",
+    "security_flags": [],
+    "target_order_id": null
+  },
+  "<fixture-007@nordwind-bau.example>": {
+    "ambiguities": [],
+    "customer_reference": "nordwind-bau.example",
+    "extraction_confidence": 0.8,
+    "intent": "create",
+    "language": "en",
+    "line_items": [],
+    "message_id": "<fixture-007@nordwind-bau.example>",
+    "po_reference": null,
+    "requested_date": null,
+    "security_flags": [],
+    "target_order_id": null
+  },
+  "<fixture-008@sonnenfeld-technik.example>": {
+    "ambiguities": [],
+    "customer_reference": null,
+    "extraction_confidence": 1.0,
+    "intent": "create",
+    "language": "en",
+    "line_items": [
+      {
+        "currency": "EUR",
+        "product_reference": "SKU-100",
+        "quantity": "25",
+        "source_evidence": {
+          "locator": "email_body",
+          "quoted_text": "25 EA of SKU-100 at EUR 4.50",
+          "source_type": "email_body"
+        },
+        "unit": "EA",
+        "unit_price": "4.50"
+      }
+    ],
+    "message_id": "<fixture-008@sonnenfeld-technik.example>",
+    "po_reference": "SF-2026-88",
+    "requested_date": null,
+    "security_flags": [],
+    "target_order_id": null
+  },
+  "<fixture-009@nordwind-bau.example>": {
+    "ambiguities": [],
+    "customer_reference": "Nordwind Bau GmbH",
+    "extraction_confidence": 1.0,
+    "intent": "create",
+    "language": "en",
+    "line_items": [
+      {
+        "currency": "EUR",
+        "product_reference": "SKU-999",
+        "quantity": "5",
+        "source_evidence": {
+          "locator": "sheet:Order!cell:A7",
+          "quoted_text": "SKU-999",
+          "source_type": "xlsx"
+        },
+        "unit": "EA",
+        "unit_price": "18"
+      }
+    ],
+    "message_id": "<fixture-009@nordwind-bau.example>",
+    "po_reference": "PO-2026-009",
+    "requested_date": "2026-02-17",
+    "security_flags": [],
+    "target_order_id": null
+  },
+  "<fixture-010@nordwind-bau.example>": {
+    "ambiguities": [],
+    "customer_reference": "Nordwind Bau GmbH",
+    "extraction_confidence": 1.0,
+    "intent": "create",
+    "language": "en",
+    "line_items": [
+      {
+        "currency": null,
+        "product_reference": "SKU-100",
+        "quantity": "100",
+        "source_evidence": {
+          "locator": "page:1",
+          "quoted_text": "100",
+          "source_type": "pdf"
+        },
+        "unit": "EA",
+        "unit_price": "2.00"
+      }
+    ],
+    "message_id": "<fixture-010@nordwind-bau.example>",
+    "po_reference": "PO-2026-010",
+    "requested_date": null,
+    "security_flags": [],
+    "target_order_id": null
+  },
+  "<fixture-011@nordwind-bau.example>": {
+    "ambiguities": [],
+    "customer_reference": "Nordwind Bau GmbH",
+    "extraction_confidence": 1.0,
+    "intent": "create",
+    "language": "en",
+    "line_items": [
+      {
+        "currency": "EUR",
+        "product_reference": "SKU-100",
+        "quantity": "10000",
+        "source_evidence": {
+          "locator": "sheet:Order!cell:A7",
+          "quoted_text": "SKU-100",
+          "source_type": "xlsx"
+        },
+        "unit": "EA",
+        "unit_price": "4.5"
+      }
+    ],
+    "message_id": "<fixture-011@nordwind-bau.example>",
+    "po_reference": "PO-2026-011",
+    "requested_date": "2026-02-18",
+    "security_flags": [],
+    "target_order_id": null
+  },
+  "<fixture-012@nordwind-bau.example>": {
+    "ambiguities": [],
+    "customer_reference": "Nordwind Bau GmbH",
+    "extraction_confidence": 0.9,
+    "intent": "update",
+    "language": "en",
+    "line_items": [
+      {
+        "currency": null,
+        "product_reference": "SKU-100",
+        "quantity": "130",
+        "source_evidence": {
+          "locator": "page:1",
+          "quoted_text": "Change ORD-2026-0101 from 100 to 130 EA",
+          "source_type": "pdf"
+        },
+        "unit": "EA",
+        "unit_price": "4.50"
+      }
+    ],
+    "message_id": "<fixture-012@nordwind-bau.example>",
+    "po_reference": "PO-2026-0007",
+    "requested_date": null,
+    "security_flags": [],
+    "target_order_id": "ORD-2026-0101"
+  },
+  "<fixture-013@bergtal.example>": {
+    "ambiguities": [],
+    "customer_reference": "Bergtal Maschinenbau AG",
+    "extraction_confidence": 0.9,
+    "intent": "cancel",
+    "language": "en",
+    "line_items": [
+      {
+        "currency": null,
+        "product_reference": "SKU-400",
+        "quantity": "20",
+        "source_evidence": {
+          "locator": "page:1",
+          "quoted_text": "20\nEA\n39.90",
+          "source_type": "pdf"
+        },
+        "unit": "EA",
+        "unit_price": "39.90"
+      }
+    ],
+    "message_id": "<fixture-013@bergtal.example>",
+    "po_reference": "PO-2026-0011",
+    "requested_date": null,
+    "security_flags": [],
+    "target_order_id": "ORD-2026-0102"
+  },
+  "<fixture-014@nordwind-bau.example>": {
+    "ambiguities": [
+      "Quantity conflict for SKU-100: 150 from email_body and 500 from sheet:Order!cell:B7"
+    ],
+    "customer_reference": "Nordwind Bau GmbH",
+    "extraction_confidence": 0.5,
+    "intent": "create",
+    "language": "en",
+    "line_items": [
+      {
+        "currency": "EUR",
+        "product_reference": "SKU-100",
+        "quantity": "150",
+        "source_evidence": {
+          "locator": "email_body",
+          "quoted_text": "150 EA of SKU-100 at EUR 4.50",
+          "source_type": "email_body"
+        },
+        "unit": "EA",
+        "unit_price": "4.50"
+      },
+      {
+        "currency": "EUR",
+        "product_reference": "SKU-100",
+        "quantity": "500",
+        "source_evidence": {
+          "locator": "sheet:Order!cell:A7",
+          "quoted_text": "SKU-100",
+          "source_type": "xlsx"
+        },
+        "unit": "EA",
+        "unit_price": "4.5"
+      }
+    ],
+    "message_id": "<fixture-014@nordwind-bau.example>",
+    "po_reference": "PO-2026-014",
+    "requested_date": "2026-02-18",
+    "security_flags": [],
+    "target_order_id": null
+  },
+  "<fixture-015@nordwind-bau.example>": {
+    "ambiguities": [],
+    "customer_reference": "Nordwind Bau GmbH",
+    "extraction_confidence": 1.0,
+    "intent": "create",
+    "language": "en",
+    "line_items": [
+      {
+        "currency": "EUR",
+        "product_reference": "SKU-100",
+        "quantity": "2",
+        "source_evidence": {
+          "locator": "email_body",
+          "quoted_text": "2 EA of SKU-100 at EUR 4.50",
+          "source_type": "email_body"
+        },
+        "unit": "EA",
+        "unit_price": "4.50"
+      }
+    ],
+    "message_id": "<fixture-015@nordwind-bau.example>",
+    "po_reference": "PO-2026-015",
+    "requested_date": null,
+    "security_flags": [
+      "prompt_injection"
+    ],
+    "target_order_id": null
+  },
+  "<fixture-016@nordwind-bau.example>": {
+    "ambiguities": [],
+    "customer_reference": "Nordwind Bau GmbH",
+    "extraction_confidence": 0.9,
+    "intent": "create",
+    "language": "en",
+    "line_items": [
+      {
+        "currency": null,
+        "product_reference": "SKU-100",
+        "quantity": "3",
+        "source_evidence": {
+          "locator": "page:1",
+          "quoted_text": "3",
+          "source_type": "pdf"
+        },
+        "unit": "EA",
+        "unit_price": "4.50"
+      }
+    ],
+    "message_id": "<fixture-016@nordwind-bau.example>",
+    "po_reference": "PO-2026-016",
+    "requested_date": null,
+    "security_flags": [
+      "prompt_injection"
+    ],
+    "target_order_id": null
+  },
+  "<fixture-017@bergtal.example>": {
+    "ambiguities": [],
+    "customer_reference": null,
+    "extraction_confidence": 0.5,
+    "intent": "unclear",
+    "language": "en",
+    "line_items": [],
+    "message_id": "<fixture-017@bergtal.example>",
+    "po_reference": null,
+    "requested_date": null,
+    "security_flags": [],
+    "target_order_id": null
+  },
+  "<fixture-018@nordwind-bau.example>": {
+    "ambiguities": [],
+    "customer_reference": null,
+    "extraction_confidence": 0.8,
+    "intent": "create",
+    "language": "en",
+    "line_items": [],
+    "message_id": "<fixture-018@nordwind-bau.example>",
+    "po_reference": null,
+    "requested_date": null,
+    "security_flags": [],
+    "target_order_id": null
+  },
+  "<fixture-019@nordwind-bau.example>": {
+    "ambiguities": [],
+    "customer_reference": null,
+    "extraction_confidence": 0.5,
+    "intent": "unclear",
+    "language": "en",
+    "line_items": [],
+    "message_id": "<fixture-019@nordwind-bau.example>",
+    "po_reference": null,
+    "requested_date": null,
+    "security_flags": [
+      "prompt_injection"
+    ],
+    "target_order_id": null
+  },
+  "<fixture-020@nordwind-bau.example>": {
+    "ambiguities": [],
+    "customer_reference": "nordwind-bau.example",
+    "extraction_confidence": 0.5,
+    "intent": "create",
+    "language": "en",
+    "line_items": [],
+    "message_id": "<fixture-020@nordwind-bau.example>",
+    "po_reference": "PO-2026-020",
+    "requested_date": null,
+    "security_flags": [],
+    "target_order_id": null
+  },
+  "<fixture-023@rheinblick.example>": {
+    "ambiguities": [],
+    "customer_reference": "RB-2026-23",
+    "extraction_confidence": 0.5,
+    "intent": "create",
+    "language": "en",
+    "line_items": [],
+    "message_id": "<fixture-023@rheinblick.example>",
+    "po_reference": null,
+    "requested_date": null,
+    "security_flags": [],
+    "target_order_id": null
+  },
+  "<fixture-024@nordwind-bau.example>": {
+    "ambiguities": [],
+    "customer_reference": "Nordwind Bau GmbH",
+    "extraction_confidence": 1.0,
+    "intent": "create",
+    "language": "en",
+    "line_items": [
+      {
+        "currency": "EUR",
+        "product_reference": "SKU-100",
+        "quantity": "40",
+        "source_evidence": {
+          "locator": "sheet:Order!cell:A7",
+          "quoted_text": "SKU-100",
+          "source_type": "xlsx"
+        },
+        "unit": "EA",
+        "unit_price": "4.5"
+      }
+    ],
+    "message_id": "<fixture-024@nordwind-bau.example>",
+    "po_reference": "PO-2026-024",
+    "requested_date": "2026-02-20",
+    "security_flags": [],
+    "target_order_id": null
+  },
+  "<fixture-025@nordwind-bau.example>": {
+    "ambiguities": [],
+    "customer_reference": "Bergtal Maschinenbau AG",
+    "extraction_confidence": 1.0,
+    "intent": "create",
+    "language": "en",
+    "line_items": [
+      {
+        "currency": null,
+        "product_reference": "SKU-400",
+        "quantity": "5",
+        "source_evidence": {
+          "locator": "page:1",
+          "quoted_text": "5",
+          "source_type": "pdf"
+        },
+        "unit": "EA",
+        "unit_price": "39.90"
+      }
+    ],
+    "message_id": "<fixture-025@nordwind-bau.example>",
+    "po_reference": "PO-2026-025",
+    "requested_date": null,
+    "security_flags": [],
+    "target_order_id": null
+  },
+  "<fixture-026@nordwind-bau.example>": {
+    "ambiguities": [],
+    "customer_reference": "Nordwind Bau GmbH",
+    "extraction_confidence": 0.9,
+    "intent": "create",
+    "language": "en",
+    "line_items": [
+      {
+        "currency": "EUR",
+        "product_reference": "SKU-100",
+        "quantity": "100",
+        "source_evidence": {
+          "locator": "sheet:Order!cell:A7",
+          "quoted_text": "SKU-100",
+          "source_type": "xlsx"
+        },
+        "unit": "packs",
+        "unit_price": "4.00"
+      }
+    ],
+    "message_id": "<fixture-026@nordwind-bau.example>",
+    "po_reference": "PO-2026-026",
+    "requested_date": null,
+    "security_flags": [],
+    "target_order_id": null
+  },
+  "<logical-order-po-2026-021@nordwind-bau.example>": {
+    "ambiguities": [],
+    "customer_reference": null,
+    "extraction_confidence": 1.0,
+    "intent": "create",
+    "language": "en",
+    "line_items": [
+      {
+        "currency": "EUR",
+        "product_reference": "SKU-100",
+        "quantity": "10",
+        "source_evidence": {
+          "locator": "email_body",
+          "quoted_text": "10 EA of SKU-100 at EUR 4.50",
+          "source_type": "email_body"
+        },
+        "unit": "EA",
+        "unit_price": "4.50"
+      }
+    ],
+    "message_id": "<logical-order-po-2026-021@nordwind-bau.example>",
+    "po_reference": "PO-2026-021",
+    "requested_date": null,
+    "security_flags": [],
+    "target_order_id": null
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "fixture_id": "002",
+  "fixture_name": "valid_pdf",
+  "description": "Order lines in PDF and delivery address in email",
+  "source_email": "data/emails/002_valid_pdf.eml",
+  "attachments": [
+    "data/attachments/order_valid.pdf"
+  ],
+  "fixture_metadata": {
+    "generated": true,
+    "macro_template_required": false
+  },
+  "expected_extraction": {
+    "intent": "create",
+    "language": "en",
+    "customer": {
+      "customer_id": "CUST-1001",
+      "name": "Nordwind Bau GmbH",
+      "match_type": "exact"
+    },
+    "purchase_order_reference": "PO-2026-002",
+    "existing_order_id": null,
+    "requested_delivery_date": "2026-02-11",
+    "line_items": [
+      {
+        "sku": "SKU-100",
+        "quantity": 150,
+        "unit": "EA",
+        "unit_price": "4.50",
+        "currency": "EUR",
+        "source": {
+          "type": "pdf",
+          "file": "order_valid.pdf",
+          "page": 1
+        },
+        "inferred": false,
+        "conflicting_values": []
+      },
+      {
+        "sku": "SKU-200",
+        "quantity": 20,
+        "unit": "BOX",
+        "unit_price": "12.00",
+        "currency": "EUR",
+        "source": {
+          "type": "pdf",
+          "file": "order_valid.pdf",
+          "page": 1
+        },
+        "inferred": false,
+        "conflicting_values": []
+      }
+    ],
+    "ambiguities": [],
+    "security_flags": [],
+    "provenance": {
+      "email": {
+        "type": "email",
+        "file": "002_valid_pdf.eml",
+        "body": {
+          "type": "email_body"
+        }
+      },
+      "attachments": [
+        {
+          "type": "pdf",
+          "file": "order_valid.pdf"
+        }
+      ],
+      "customer": {
+        "type": "pdf",
+        "file": "order_valid.pdf",
+        "page": 1
+      },
+      "purchase_order_reference": {
+        "type": "pdf",
+        "file": "order_valid.pdf",
+        "page": 1
+      },
+      "line_items": {
+        "type": "pdf",
+        "file": "order_valid.pdf",
+        "page": 1
+      },
+      "delivery_address": {
+        "type": "email_body"
+      }
+    }
+  },
+  "expected_workflow": {
+    "outcome": "AUTO_CREATE",
+    "reason_codes": [
+      "EXACT_CUSTOMER_MATCH",
+      "EXACT_PRODUCT_MATCH",
+      "PRICE_MATCH",
+      "VALID_CREATE_REQUEST"
+    ],
+    "erp_write_allowed": true,
+    "recommended_action": null
+  }
+}

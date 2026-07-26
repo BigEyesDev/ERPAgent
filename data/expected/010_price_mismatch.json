@@ -1,0 +1,68 @@
+{
+  "fixture_id": "010",
+  "fixture_name": "price_mismatch",
+  "description": "Customer price materially differs from ERP contract price",
+  "source_email": "data/emails/010_price_mismatch.eml",
+  "attachments": [
+    "data/attachments/order_price_mismatch.pdf"
+  ],
+  "fixture_metadata": {
+    "generated": true,
+    "macro_template_required": false
+  },
+  "expected_extraction": {
+    "intent": "create",
+    "language": "en",
+    "customer": {
+      "customer_id": "CUST-1001",
+      "name": "Nordwind Bau GmbH",
+      "match_type": "exact"
+    },
+    "purchase_order_reference": "PO-2026-010",
+    "existing_order_id": null,
+    "requested_delivery_date": null,
+    "line_items": [
+      {
+        "sku": "SKU-100",
+        "quantity": 100,
+        "unit": "EA",
+        "unit_price": "2.00",
+        "currency": "EUR",
+        "source": {
+          "type": "pdf",
+          "file": "order_price_mismatch.pdf",
+          "page": 1
+        },
+        "inferred": false,
+        "conflicting_values": []
+      }
+    ],
+    "ambiguities": [
+      "Submitted price EUR 2.00 differs from ERP price EUR 4.50"
+    ],
+    "security_flags": [],
+    "provenance": {
+      "email": {
+        "type": "email",
+        "file": "010_price_mismatch.eml",
+        "body": {
+          "type": "email_body"
+        }
+      },
+      "attachments": [
+        {
+          "type": "pdf",
+          "file": "order_price_mismatch.pdf"
+        }
+      ]
+    }
+  },
+  "expected_workflow": {
+    "outcome": "HUMAN_REVIEW",
+    "reason_codes": [
+      "PRICE_MISMATCH"
+    ],
+    "erp_write_allowed": false,
+    "recommended_action": null
+  }
+}

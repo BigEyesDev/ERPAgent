@@ -1,0 +1,54 @@
+{
+  "fixture_id": "017",
+  "fixture_name": "encrypted_pdf",
+  "description": "Password-protected order cannot be inspected",
+  "source_email": "data/emails/017_encrypted_pdf.eml",
+  "attachments": [
+    "data/attachments/order_encrypted.pdf"
+  ],
+  "fixture_metadata": {
+    "generated": true,
+    "macro_template_required": false
+  },
+  "expected_extraction": {
+    "intent": "create",
+    "language": "en",
+    "customer": {
+      "customer_id": "CUST-1002",
+      "name": "Bergtal Maschinenbau AG",
+      "match_type": "domain"
+    },
+    "purchase_order_reference": null,
+    "existing_order_id": null,
+    "requested_delivery_date": null,
+    "line_items": [],
+    "ambiguities": [],
+    "security_flags": [
+      "encrypted_attachment"
+    ],
+    "provenance": {
+      "email": {
+        "type": "email",
+        "file": "017_encrypted_pdf.eml",
+        "body": {
+          "type": "email_body"
+        }
+      },
+      "attachments": [
+        {
+          "type": "pdf",
+          "file": "order_encrypted.pdf"
+        }
+      ]
+    }
+  },
+  "expected_workflow": {
+    "outcome": "SECURITY_QUARANTINE",
+    "reason_codes": [
+      "ENCRYPTED_ATTACHMENT",
+      "CONTENT_NOT_INSPECTABLE"
+    ],
+    "erp_write_allowed": false,
+    "recommended_action": "REQUEST_UNENCRYPTED_COPY"
+  }
+}

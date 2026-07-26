@@ -1,0 +1,54 @@
+{
+  "fixture_id": "018",
+  "fixture_name": "malformed_pdf",
+  "description": "PDF-looking bytes contain invalid document structure",
+  "source_email": "data/emails/018_malformed_pdf.eml",
+  "attachments": [
+    "data/attachments/order_malformed.pdf"
+  ],
+  "fixture_metadata": {
+    "generated": true,
+    "macro_template_required": false
+  },
+  "expected_extraction": {
+    "intent": "create",
+    "language": "en",
+    "customer": {
+      "customer_id": "CUST-1001",
+      "name": "Nordwind Bau GmbH",
+      "match_type": "domain"
+    },
+    "purchase_order_reference": null,
+    "existing_order_id": null,
+    "requested_delivery_date": null,
+    "line_items": [],
+    "ambiguities": [
+      "The attachment cannot be parsed"
+    ],
+    "security_flags": [],
+    "provenance": {
+      "email": {
+        "type": "email",
+        "file": "018_malformed_pdf.eml",
+        "body": {
+          "type": "email_body"
+        }
+      },
+      "attachments": [
+        {
+          "type": "pdf",
+          "file": "order_malformed.pdf"
+        }
+      ]
+    }
+  },
+  "expected_workflow": {
+    "outcome": "CLARIFICATION_REQUIRED",
+    "reason_codes": [
+      "UNREADABLE_ATTACHMENT",
+      "REPLACEMENT_DOCUMENT_REQUIRED"
+    ],
+    "erp_write_allowed": false,
+    "recommended_action": "REQUEST_REPLACEMENT_DOCUMENT"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "fixture_id": "009",
+  "fixture_name": "unknown_product",
+  "description": "Workbook contains an unknown SKU",
+  "source_email": "data/emails/009_unknown_product.eml",
+  "attachments": [
+    "data/attachments/order_unknown_product.xlsx"
+  ],
+  "fixture_metadata": {
+    "generated": true,
+    "macro_template_required": false
+  },
+  "expected_extraction": {
+    "intent": "create",
+    "language": "en",
+    "customer": {
+      "customer_id": "CUST-1001",
+      "name": "Nordwind Bau GmbH",
+      "match_type": "exact"
+    },
+    "purchase_order_reference": "PO-2026-009",
+    "existing_order_id": null,
+    "requested_delivery_date": null,
+    "line_items": [
+      {
+        "sku": "SKU-999",
+        "quantity": 5,
+        "unit": "EA",
+        "unit_price": "18.00",
+        "currency": "EUR",
+        "source": {
+          "type": "xlsx",
+          "file": "order_unknown_product.xlsx",
+          "sheet": "Order",
+          "row": 7
+        },
+        "inferred": false,
+        "conflicting_values": []
+      }
+    ],
+    "ambiguities": [
+      "SKU-999 does not exist in product master data"
+    ],
+    "security_flags": [],
+    "provenance": {
+      "email": {
+        "type": "email",
+        "file": "009_unknown_product.eml",
+        "body": {
+          "type": "email_body"
+        }
+      },
+      "attachments": [
+        {
+          "type": "xlsx",
+          "file": "order_unknown_product.xlsx"
+        }
+      ]
+    }
+  },
+  "expected_workflow": {
+    "outcome": "CLARIFICATION_REQUIRED",
+    "reason_codes": [
+      "UNKNOWN_PRODUCT"
+    ],
+    "erp_write_allowed": false,
+    "recommended_action": null
+  }
+}

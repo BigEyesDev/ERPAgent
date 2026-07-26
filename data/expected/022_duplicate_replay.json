@@ -1,0 +1,57 @@
+{
+  "fixture_id": "022",
+  "fixture_name": "duplicate_replay",
+  "description": "Replay of fixture 021 with the same normalized identity and order data",
+  "source_email": "data/emails/022_duplicate_replay.eml",
+  "attachments": [],
+  "fixture_metadata": {
+    "generated": true,
+    "macro_template_required": false
+  },
+  "expected_extraction": {
+    "intent": "create",
+    "language": "en",
+    "customer": {
+      "customer_id": "CUST-1001",
+      "name": "Nordwind Bau GmbH",
+      "match_type": "exact"
+    },
+    "purchase_order_reference": "PO-2026-021",
+    "existing_order_id": null,
+    "requested_delivery_date": null,
+    "line_items": [
+      {
+        "sku": "SKU-100",
+        "quantity": 10,
+        "unit": "EA",
+        "unit_price": "4.50",
+        "currency": "EUR",
+        "source": {
+          "type": "email_body"
+        },
+        "inferred": false,
+        "conflicting_values": []
+      }
+    ],
+    "ambiguities": [],
+    "security_flags": [],
+    "provenance": {
+      "email": {
+        "type": "email",
+        "file": "022_duplicate_replay.eml",
+        "body": {
+          "type": "email_body"
+        }
+      },
+      "attachments": []
+    }
+  },
+  "expected_workflow": {
+    "outcome": "DUPLICATE_NOOP",
+    "reason_codes": [
+      "DUPLICATE_MESSAGE_OR_ORDER"
+    ],
+    "erp_write_allowed": false,
+    "recommended_action": null
+  }
+}

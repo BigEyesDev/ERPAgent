@@ -1,0 +1,60 @@
+{
+  "fixture_id": "021",
+  "fixture_name": "duplicate_original",
+  "description": "First delivery of a valid logical order",
+  "source_email": "data/emails/021_duplicate_original.eml",
+  "attachments": [],
+  "fixture_metadata": {
+    "generated": true,
+    "macro_template_required": false
+  },
+  "expected_extraction": {
+    "intent": "create",
+    "language": "en",
+    "customer": {
+      "customer_id": "CUST-1001",
+      "name": "Nordwind Bau GmbH",
+      "match_type": "exact"
+    },
+    "purchase_order_reference": "PO-2026-021",
+    "existing_order_id": null,
+    "requested_delivery_date": null,
+    "line_items": [
+      {
+        "sku": "SKU-100",
+        "quantity": 10,
+        "unit": "EA",
+        "unit_price": "4.50",
+        "currency": "EUR",
+        "source": {
+          "type": "email_body"
+        },
+        "inferred": false,
+        "conflicting_values": []
+      }
+    ],
+    "ambiguities": [],
+    "security_flags": [],
+    "provenance": {
+      "email": {
+        "type": "email",
+        "file": "021_duplicate_original.eml",
+        "body": {
+          "type": "email_body"
+        }
+      },
+      "attachments": []
+    }
+  },
+  "expected_workflow": {
+    "outcome": "AUTO_CREATE",
+    "reason_codes": [
+      "EXACT_CUSTOMER_MATCH",
+      "EXACT_PRODUCT_MATCH",
+      "PRICE_MATCH",
+      "VALID_CREATE_REQUEST"
+    ],
+    "erp_write_allowed": true,
+    "recommended_action": null
+  }
+}

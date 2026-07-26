@@ -1,0 +1,32 @@
+[
+  {
+    "order_id": "ORD-2026-0101",
+    "customer_id": "CUST-1001",
+    "purchase_order_reference": "PO-2026-0007",
+    "status": "confirmed",
+    "line_items": [
+      {
+        "sku": "SKU-100",
+        "quantity": 100,
+        "unit": "EA",
+        "unit_price": "4.50",
+        "currency": "EUR"
+      }
+    ]
+  },
+  {
+    "order_id": "ORD-2026-0102",
+    "customer_id": "CUST-1002",
+    "purchase_order_reference": "PO-2026-0011",
+    "status": "pending",
+    "line_items": [
+      {
+        "sku": "SKU-400",
+        "quantity": 20,
+        "unit": "EA",
+        "unit_price": "39.90",
+        "currency": "EUR"
+      }
+    ]
+  }
+]

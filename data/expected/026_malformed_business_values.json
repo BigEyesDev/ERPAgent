@@ -1,0 +1,72 @@
+{
+  "fixture_id": "026",
+  "fixture_name": "malformed_business_values",
+  "description": "Workbook contains non-numeric and ambiguous business values",
+  "source_email": "data/emails/026_malformed_business_values.eml",
+  "attachments": [
+    "data/attachments/order_invalid_values.xlsx"
+  ],
+  "fixture_metadata": {
+    "generated": true,
+    "macro_template_required": false
+  },
+  "expected_extraction": {
+    "intent": "create",
+    "language": "en",
+    "customer": {
+      "customer_id": "CUST-1001",
+      "name": "Nordwind Bau GmbH",
+      "match_type": "exact"
+    },
+    "purchase_order_reference": "PO-2026-026",
+    "existing_order_id": null,
+    "requested_delivery_date": "ASAP",
+    "line_items": [
+      {
+        "sku": "SKU-100",
+        "quantity": "one hundred",
+        "unit": "packs",
+        "unit_price": "approx. 4 euros",
+        "currency": "EUR",
+        "source": {
+          "type": "xlsx",
+          "file": "order_invalid_values.xlsx",
+          "sheet": "Order",
+          "row": 7
+        },
+        "inferred": false,
+        "conflicting_values": []
+      }
+    ],
+    "ambiguities": [
+      "Quantity, price, delivery date, and unit require customer clarification"
+    ],
+    "security_flags": [],
+    "provenance": {
+      "email": {
+        "type": "email",
+        "file": "026_malformed_business_values.eml",
+        "body": {
+          "type": "email_body"
+        }
+      },
+      "attachments": [
+        {
+          "type": "xlsx",
+          "file": "order_invalid_values.xlsx"
+        }
+      ]
+    }
+  },
+  "expected_workflow": {
+    "outcome": "CLARIFICATION_REQUIRED",
+    "reason_codes": [
+      "NON_NUMERIC_QUANTITY",
+      "AMBIGUOUS_PRICE",
+      "AMBIGUOUS_DELIVERY_DATE",
+      "UNKNOWN_UNIT"
+    ],
+    "erp_write_allowed": false,
+    "recommended_action": null
+  }
+}

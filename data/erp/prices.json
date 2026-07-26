@@ -1,0 +1,38 @@
+[
+  {
+    "customer_id": "CUST-1001",
+    "sku": "SKU-100",
+    "unit": "EA",
+    "currency": "EUR",
+    "unit_price": "4.50",
+    "valid_from": "2026-01-01",
+    "valid_to": "2026-12-31"
+  },
+  {
+    "customer_id": "CUST-1001",
+    "sku": "SKU-200",
+    "unit": "BOX",
+    "currency": "EUR",
+    "unit_price": "12.00",
+    "valid_from": "2026-01-01",
+    "valid_to": "2026-12-31"
+  },
+  {
+    "customer_id": "CUST-1001",
+    "sku": "SKU-300",
+    "unit": "BOX",
+    "currency": "EUR",
+    "unit_price": "8.75",
+    "valid_from": "2026-01-01",
+    "valid_to": "2026-12-31"
+  },
+  {
+    "customer_id": "CUST-1002",
+    "sku": "SKU-400",
+    "unit": "EA",
+    "currency": "EUR",
+    "unit_price": "39.90",
+    "valid_from": "2026-01-01",
+    "valid_to": "2026-12-31"
+  }
+]

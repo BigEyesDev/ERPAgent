@@ -1,0 +1,47 @@
+{
+  "fixture_id": "019",
+  "fixture_name": "macro_enabled_workbook",
+  "description": "Genuine benign macro workbook, generated only from an explicit trusted template",
+  "source_email": "data/emails/019_macro_enabled_workbook.eml",
+  "attachments": [],
+  "fixture_metadata": {
+    "generated": false,
+    "macro_template_required": true
+  },
+  "expected_extraction": {
+    "intent": "create",
+    "language": "en",
+    "customer": {
+      "customer_id": "CUST-1001",
+      "name": "Nordwind Bau GmbH",
+      "match_type": "domain"
+    },
+    "purchase_order_reference": null,
+    "existing_order_id": null,
+    "requested_delivery_date": null,
+    "line_items": [],
+    "ambiguities": [],
+    "security_flags": [
+      "macro_enabled_document"
+    ],
+    "provenance": {
+      "email": {
+        "type": "email",
+        "file": "019_macro_enabled_workbook.eml",
+        "body": {
+          "type": "email_body"
+        }
+      },
+      "attachments": []
+    }
+  },
+  "expected_workflow": {
+    "outcome": "SECURITY_QUARANTINE",
+    "reason_codes": [
+      "MACRO_ENABLED_DOCUMENT",
+      "ACTIVE_CONTENT_NOT_ALLOWED"
+    ],
+    "erp_write_allowed": false,
+    "recommended_action": null
+  }
+}

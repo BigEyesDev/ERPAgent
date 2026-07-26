@@ -1,0 +1,24 @@
+Message-ID: <fixture-018@nordwind-bau.example>
+Date: Wed, 28 Jan 2026 21:00:00 +0000
+From: purchasing@nordwind-bau.example
+To: orders@alpenwerk.example
+Subject: PO document could not be opened
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="fixture-018-boundary-0"
+
+--fixture-018-boundary-0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+Please process our attached order document.
+
+--fixture-018-boundary-0
+Content-Type: application/pdf
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="order_malformed.pdf"
+MIME-Version: 1.0
+
+JVBERi0xLjcKMSAwIG9iaiA8PCAvVHlwZSAvQ2F0YWxvZyAvUGFnZXMgMiAwIFIgPj4KMiAwIG9i
+aiA8PCAvVHlwZSAvUGFnZXMgL0tpZHMgWzMgMCBSXSAvQ291bnQgMQolJUVPRi1CUk9LRU4=
+
+--fixture-018-boundary-0--

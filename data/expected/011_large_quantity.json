@@ -1,0 +1,68 @@
+{
+  "fixture_id": "011",
+  "fixture_name": "large_quantity",
+  "description": "Large order exceeds quantity and value review thresholds",
+  "source_email": "data/emails/011_large_quantity.eml",
+  "attachments": [
+    "data/attachments/order_large_quantity.xlsx"
+  ],
+  "fixture_metadata": {
+    "generated": true,
+    "macro_template_required": false
+  },
+  "expected_extraction": {
+    "intent": "create",
+    "language": "en",
+    "customer": {
+      "customer_id": "CUST-1001",
+      "name": "Nordwind Bau GmbH",
+      "match_type": "exact"
+    },
+    "purchase_order_reference": "PO-2026-011",
+    "existing_order_id": null,
+    "requested_delivery_date": null,
+    "line_items": [
+      {
+        "sku": "SKU-100",
+        "quantity": 10000,
+        "unit": "EA",
+        "unit_price": "4.50",
+        "currency": "EUR",
+        "source": {
+          "type": "xlsx",
+          "file": "order_large_quantity.xlsx",
+          "sheet": "Order",
+          "row": 7
+        },
+        "inferred": false,
+        "conflicting_values": []
+      }
+    ],
+    "ambiguities": [],
+    "security_flags": [],
+    "provenance": {
+      "email": {
+        "type": "email",
+        "file": "011_large_quantity.eml",
+        "body": {
+          "type": "email_body"
+        }
+      },
+      "attachments": [
+        {
+          "type": "xlsx",
+          "file": "order_large_quantity.xlsx"
+        }
+      ]
+    }
+  },
+  "expected_workflow": {
+    "outcome": "HUMAN_REVIEW",
+    "reason_codes": [
+      "LARGE_QUANTITY",
+      "ORDER_VALUE_THRESHOLD_EXCEEDED"
+    ],
+    "erp_write_allowed": false,
+    "recommended_action": null
+  }
+}

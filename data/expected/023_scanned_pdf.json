@@ -1,0 +1,69 @@
+{
+  "fixture_id": "023",
+  "fixture_name": "scanned_pdf",
+  "description": "Image-only PDF requires OCR, which is unavailable in the demo",
+  "source_email": "data/emails/023_scanned_pdf.eml",
+  "attachments": [
+    "data/attachments/order_scanned.pdf"
+  ],
+  "fixture_metadata": {
+    "generated": true,
+    "macro_template_required": false
+  },
+  "expected_extraction": {
+    "intent": "create",
+    "language": "en",
+    "customer": {
+      "customer_id": "CUST-1003",
+      "name": "Rheinblick Anlagenbau KG",
+      "match_type": "domain"
+    },
+    "purchase_order_reference": "RB-2026-23",
+    "existing_order_id": null,
+    "requested_delivery_date": null,
+    "line_items": [
+      {
+        "sku": "SKU-300",
+        "quantity": 8,
+        "unit": "BOX",
+        "unit_price": null,
+        "currency": "EUR",
+        "source": {
+          "type": "scanned_pdf",
+          "file": "order_scanned.pdf",
+          "page": 1
+        },
+        "inferred": false,
+        "conflicting_values": []
+      }
+    ],
+    "ambiguities": [
+      "Order data requires OCR and has not been machine-verified"
+    ],
+    "security_flags": [],
+    "provenance": {
+      "email": {
+        "type": "email",
+        "file": "023_scanned_pdf.eml",
+        "body": {
+          "type": "email_body"
+        }
+      },
+      "attachments": [
+        {
+          "type": "pdf",
+          "file": "order_scanned.pdf"
+        }
+      ]
+    }
+  },
+  "expected_workflow": {
+    "outcome": "HUMAN_REVIEW",
+    "reason_codes": [
+      "OCR_REQUIRED",
+      "SCANNED_DOCUMENT_OCR_NOT_AVAILABLE_IN_DEMO"
+    ],
+    "erp_write_allowed": false,
+    "recommended_action": "MANUAL_TRANSCRIPTION_OR_OCR"
+  }
+}

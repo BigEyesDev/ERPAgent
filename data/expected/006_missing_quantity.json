@@ -1,0 +1,69 @@
+{
+  "fixture_id": "006",
+  "fixture_name": "missing_quantity",
+  "description": "Known product with no requested quantity",
+  "source_email": "data/emails/006_missing_quantity.eml",
+  "attachments": [
+    "data/attachments/order_missing_quantity.xlsx"
+  ],
+  "fixture_metadata": {
+    "generated": true,
+    "macro_template_required": false
+  },
+  "expected_extraction": {
+    "intent": "create",
+    "language": "en",
+    "customer": {
+      "customer_id": "CUST-1001",
+      "name": "Nordwind Bau GmbH",
+      "match_type": "exact"
+    },
+    "purchase_order_reference": "PO-2026-006",
+    "existing_order_id": null,
+    "requested_delivery_date": "2026-02-16",
+    "line_items": [
+      {
+        "sku": "SKU-100",
+        "quantity": null,
+        "unit": "EA",
+        "unit_price": "4.50",
+        "currency": "EUR",
+        "source": {
+          "type": "xlsx",
+          "file": "order_missing_quantity.xlsx",
+          "sheet": "Order",
+          "row": 7
+        },
+        "inferred": false,
+        "conflicting_values": []
+      }
+    ],
+    "ambiguities": [
+      "Quantity is absent for SKU-100"
+    ],
+    "security_flags": [],
+    "provenance": {
+      "email": {
+        "type": "email",
+        "file": "006_missing_quantity.eml",
+        "body": {
+          "type": "email_body"
+        }
+      },
+      "attachments": [
+        {
+          "type": "xlsx",
+          "file": "order_missing_quantity.xlsx"
+        }
+      ]
+    }
+  },
+  "expected_workflow": {
+    "outcome": "CLARIFICATION_REQUIRED",
+    "reason_codes": [
+      "MISSING_QUANTITY"
+    ],
+    "erp_write_allowed": false,
+    "recommended_action": null
+  }
+}

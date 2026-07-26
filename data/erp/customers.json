@@ -1,0 +1,98 @@
+[
+  {
+    "customer_id": "CUST-1001",
+    "name": "Nordwind Bau GmbH",
+    "aliases": [
+      "Nordwind Bau",
+      "Nordwind Construction"
+    ],
+    "email_domains": [
+      "nordwind-bau.example"
+    ],
+    "billing_address": {
+      "street": "Hafenstraße 18",
+      "postal_code": "20457",
+      "city": "Hamburg",
+      "country": "DE"
+    },
+    "shipping_addresses": [
+      {
+        "address_id": "SHIP-NW-HH-01",
+        "street": "Industrieweg 42",
+        "postal_code": "21079",
+        "city": "Hamburg",
+        "country": "DE"
+      }
+    ],
+    "preferred_currency": "EUR",
+    "status": "active"
+  },
+  {
+    "customer_id": "CUST-1002",
+    "name": "Bergtal Maschinenbau AG",
+    "aliases": [
+      "Bergtal",
+      "Bergtal Maschinenbau"
+    ],
+    "email_domains": [
+      "bergtal.example"
+    ],
+    "billing_address": {
+      "street": "Werkstraße 7",
+      "postal_code": "80331",
+      "city": "München",
+      "country": "DE"
+    },
+    "shipping_addresses": [
+      {
+        "address_id": "SHIP-BM-MUC-01",
+        "street": "Montageallee 12",
+        "postal_code": "80997",
+        "city": "München",
+        "country": "DE"
+      }
+    ],
+    "preferred_currency": "EUR",
+    "status": "active"
+  },
+  {
+    "customer_id": "CUST-1003",
+    "name": "Rheinblick Anlagenbau KG",
+    "aliases": [
+      "Rheinblick"
+    ],
+    "email_domains": [
+      "rheinblick.example"
+    ],
+    "billing_address": null,
+    "shipping_addresses": [],
+    "preferred_currency": "EUR",
+    "status": "active"
+  },
+  {
+    "customer_id": "CUST-1004",
+    "name": "Lumen Industrial Supplies Ltd.",
+    "aliases": [
+      "Lumen Industrial"
+    ],
+    "email_domains": [
+      "lumen-industrial.example"
+    ],
+    "billing_address": null,
+    "shipping_addresses": [],
+    "preferred_currency": "EUR",
+    "status": "active"
+  },
+  {
+    "customer_id": "CUST-1099",
+    "name": "Alpina Testhandel GmbH",
+    "aliases": [],
+    "email_domains": [
+      "alpina-testhandel.example"
+    ],
+    "billing_address": null,
+    "shipping_addresses": [],
+    "preferred_currency": "EUR",
+    "status": "blocked"
+  }
+]

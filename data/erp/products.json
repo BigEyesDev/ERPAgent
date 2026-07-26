@@ -1,0 +1,67 @@
+[
+  {
+    "sku": "SKU-100",
+    "description": "Steel Bracket 50mm",
+    "aliases": [
+      "50mm steel bracket",
+      "Bracket Type A",
+      "Stahlhalterung 50 mm"
+    ],
+    "allowed_units": [
+      "EA",
+      "PCS"
+    ],
+    "status": "active"
+  },
+  {
+    "sku": "SKU-200",
+    "description": "Hex Bolt M8x40",
+    "aliases": [
+      "M8 bolt",
+      "Hex Bolt 8x40",
+      "Sechskantschraube M8x40"
+    ],
+    "allowed_units": [
+      "BOX",
+      "EA"
+    ],
+    "status": "active"
+  },
+  {
+    "sku": "SKU-300",
+    "description": "Industrial Washer M8",
+    "aliases": [
+      "M8 washer",
+      "Unterlegscheibe M8"
+    ],
+    "allowed_units": [
+      "BOX",
+      "EA"
+    ],
+    "status": "active"
+  },
+  {
+    "sku": "SKU-400",
+    "description": "Aluminium Mounting Rail 2m",
+    "aliases": [
+      "2m mounting rail",
+      "Aluminium rail",
+      "Aluminiumschiene 2 m"
+    ],
+    "allowed_units": [
+      "EA"
+    ],
+    "status": "active"
+  },
+  {
+    "sku": "SKU-500",
+    "description": "Industrial Seal Type X",
+    "aliases": [
+      "Seal X"
+    ],
+    "allowed_units": [
+      "EA"
+    ],
+    "status": "discontinued"
+  }
+]

@@ -1,0 +1,66 @@
+{
+  "fixture_id": "012",
+  "fixture_name": "update_request",
+  "description": "Requested quantity change to an existing confirmed order",
+  "source_email": "data/emails/012_update_request.eml",
+  "attachments": [
+    "data/attachments/order_update_request.pdf"
+  ],
+  "fixture_metadata": {
+    "generated": true,
+    "macro_template_required": false
+  },
+  "expected_extraction": {
+    "intent": "update",
+    "language": "en",
+    "customer": {
+      "customer_id": "CUST-1001",
+      "name": "Nordwind Bau GmbH",
+      "match_type": "exact"
+    },
+    "purchase_order_reference": "PO-2026-0007",
+    "existing_order_id": "ORD-2026-0101",
+    "requested_delivery_date": null,
+    "line_items": [
+      {
+        "sku": "SKU-100",
+        "quantity": 130,
+        "unit": "EA",
+        "unit_price": "4.50",
+        "currency": "EUR",
+        "source": {
+          "type": "pdf",
+          "file": "order_update_request.pdf",
+          "page": 1
+        },
+        "inferred": false,
+        "conflicting_values": []
+      }
+    ],
+    "ambiguities": [],
+    "security_flags": [],
+    "provenance": {
+      "email": {
+        "type": "email",
+        "file": "012_update_request.eml",
+        "body": {
+          "type": "email_body"
+        }
+      },
+      "attachments": [
+        {
+          "type": "pdf",
+          "file": "order_update_request.pdf"
+        }
+      ]
+    }
+  },
+  "expected_workflow": {
+    "outcome": "HUMAN_REVIEW",
+    "reason_codes": [
+      "UPDATE_REQUIRES_APPROVAL"
+    ],
+    "erp_write_allowed": false,
+    "recommended_action": null
+  }
+}

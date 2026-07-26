@@ -1,0 +1,81 @@
+{
+  "fixture_id": "014",
+  "fixture_name": "email_attachment_conflict",
+  "description": "Email and XLSX contain conflicting quantities",
+  "source_email": "data/emails/014_email_attachment_conflict.eml",
+  "attachments": [
+    "data/attachments/order_conflict.xlsx"
+  ],
+  "fixture_metadata": {
+    "generated": true,
+    "macro_template_required": false
+  },
+  "expected_extraction": {
+    "intent": "create",
+    "language": "en",
+    "customer": {
+      "customer_id": "CUST-1001",
+      "name": "Nordwind Bau GmbH",
+      "match_type": "exact"
+    },
+    "purchase_order_reference": "PO-2026-014",
+    "existing_order_id": null,
+    "requested_delivery_date": null,
+    "line_items": [
+      {
+        "sku": "SKU-100",
+        "quantity": null,
+        "unit": "EA",
+        "unit_price": "4.50",
+        "currency": "EUR",
+        "source": null,
+        "inferred": false,
+        "conflicting_values": [
+          {
+            "value": 150,
+            "source": {
+              "type": "email_body"
+            }
+          },
+          {
+            "value": 500,
+            "source": {
+              "type": "xlsx",
+              "file": "order_conflict.xlsx",
+              "sheet": "Order",
+              "cell": "B7"
+            }
+          }
+        ]
+      }
+    ],
+    "ambiguities": [
+      "Conflicting quantities found for SKU-100"
+    ],
+    "security_flags": [],
+    "provenance": {
+      "email": {
+        "type": "email",
+        "file": "014_email_attachment_conflict.eml",
+        "body": {
+          "type": "email_body"
+        }
+      },
+      "attachments": [
+        {
+          "type": "xlsx",
+          "file": "order_conflict.xlsx"
+        }
+      ]
+    }
+  },
+  "expected_workflow": {
+    "outcome": "HUMAN_REVIEW",
+    "reason_codes": [
+      "CROSS_SOURCE_CONFLICT",
+      "QUANTITY_CONFLICT"
+    ],
+    "erp_write_allowed": false,
+    "recommended_action": null
+  }
+}

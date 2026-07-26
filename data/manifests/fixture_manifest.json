@@ -1,0 +1,478 @@
+{
+  "dataset_version": "1.0.0",
+  "generated_at": "2026-01-20T09:00:00Z",
+  "supplier": {
+    "company_id": "SUPPLIER-001",
+    "company_name": "AlpenWerk Components GmbH",
+    "country": "Germany",
+    "default_currency": "EUR"
+  },
+  "fixtures": [
+    {
+      "fixture_id": "001",
+      "name": "valid_plain_text",
+      "email_path": "data/emails/001_valid_plain_text.eml",
+      "attachment_paths": [],
+      "expected_path": "data/expected/001_valid_plain_text.json",
+      "category": "positive",
+      "expected_outcome": "AUTO_CREATE",
+      "languages": [
+        "en"
+      ],
+      "document_types": [],
+      "security_case": false,
+      "fixture_available": true
+    },
+    {
+      "fixture_id": "002",
+      "name": "valid_pdf",
+      "email_path": "data/emails/002_valid_pdf.eml",
+      "attachment_paths": [
+        "data/attachments/order_valid.pdf"
+      ],
+      "expected_path": "data/expected/002_valid_pdf.json",
+      "category": "positive",
+      "expected_outcome": "AUTO_CREATE",
+      "languages": [
+        "en"
+      ],
+      "document_types": [
+        "pdf"
+      ],
+      "security_case": false,
+      "fixture_available": true
+    },
+    {
+      "fixture_id": "003",
+      "name": "valid_pptx",
+      "email_path": "data/emails/003_valid_pptx.eml",
+      "attachment_paths": [
+        "data/attachments/order_valid.pptx"
+      ],
+      "expected_path": "data/expected/003_valid_pptx.json",
+      "category": "positive",
+      "expected_outcome": "AUTO_CREATE",
+      "languages": [
+        "en"
+      ],
+      "document_types": [
+        "pptx"
+      ],
+      "security_case": false,
+      "fixture_available": true
+    },
+    {
+      "fixture_id": "004",
+      "name": "valid_xlsx",
+      "email_path": "data/emails/004_valid_xlsx.eml",
+      "attachment_paths": [
+        "data/attachments/order_valid.xlsx"
+      ],
+      "expected_path": "data/expected/004_valid_xlsx.json",
+      "category": "positive",
+      "expected_outcome": "AUTO_CREATE",
+      "languages": [
+        "en"
+      ],
+      "document_types": [
+        "xlsx"
+      ],
+      "security_case": false,
+      "fixture_available": true
+    },
+    {
+      "fixture_id": "005",
+      "name": "german_order",
+      "email_path": "data/emails/005_german_order.eml",
+      "attachment_paths": [
+        "data/attachments/order_german.pdf"
+      ],
+      "expected_path": "data/expected/005_german_order.json",
+      "category": "multilingual",
+      "expected_outcome": "HUMAN_REVIEW",
+      "languages": [
+        "de"
+      ],
+      "document_types": [
+        "pdf"
+      ],
+      "security_case": false,
+      "fixture_available": true
+    },
+    {
+      "fixture_id": "006",
+      "name": "missing_quantity",
+      "email_path": "data/emails/006_missing_quantity.eml",
+      "attachment_paths": [
+        "data/attachments/order_missing_quantity.xlsx"
+      ],
+      "expected_path": "data/expected/006_missing_quantity.json",
+      "category": "ambiguity",
+      "expected_outcome": "CLARIFICATION_REQUIRED",
+      "languages": [
+        "en"
+      ],
+      "document_types": [
+        "xlsx"
+      ],
+      "security_case": false,
+      "fixture_available": true
+    },
+    {
+      "fixture_id": "007",
+      "name": "ambiguous_usual_order",
+      "email_path": "data/emails/007_ambiguous_usual_order.eml",
+      "attachment_paths": [],
+      "expected_path": "data/expected/007_ambiguous_usual_order.json",
+      "category": "ambiguity",
+      "expected_outcome": "HUMAN_REVIEW",
+      "languages": [
+        "en"
+      ],
+      "document_types": [],
+      "security_case": false,
+      "fixture_available": true
+    },
+    {
+      "fixture_id": "008",
+      "name": "unknown_customer",
+      "email_path": "data/emails/008_unknown_customer.eml",
+      "attachment_paths": [],
+      "expected_path": "data/expected/008_unknown_customer.json",
+      "category": "validation",
+      "expected_outcome": "HUMAN_REVIEW",
+      "languages": [
+        "en"
+      ],
+      "document_types": [],
+      "security_case": false,
+      "fixture_available": true
+    },
+    {
+      "fixture_id": "009",
+      "name": "unknown_product",
+      "email_path": "data/emails/009_unknown_product.eml",
+      "attachment_paths": [
+        "data/attachments/order_unknown_product.xlsx"
+      ],
+      "expected_path": "data/expected/009_unknown_product.json",
+      "category": "validation",
+      "expected_outcome": "CLARIFICATION_REQUIRED",
+      "languages": [
+        "en"
+      ],
+      "document_types": [
+        "xlsx"
+      ],
+      "security_case": false,
+      "fixture_available": true
+    },
+    {
+      "fixture_id": "010",
+      "name": "price_mismatch",
+      "email_path": "data/emails/010_price_mismatch.eml",
+      "attachment_paths": [
+        "data/attachments/order_price_mismatch.pdf"
+      ],
+      "expected_path": "data/expected/010_price_mismatch.json",
+      "category": "validation",
+      "expected_outcome": "HUMAN_REVIEW",
+      "languages": [
+        "en"
+      ],
+      "document_types": [
+        "pdf"
+      ],
+      "security_case": false,
+      "fixture_available": true
+    },
+    {
+      "fixture_id": "011",
+      "name": "large_quantity",
+      "email_path": "data/emails/011_large_quantity.eml",
+      "attachment_paths": [
+        "data/attachments/order_large_quantity.xlsx"
+      ],
+      "expected_path": "data/expected/011_large_quantity.json",
+      "category": "validation",
+      "expected_outcome": "HUMAN_REVIEW",
+      "languages": [
+        "en"
+      ],
+      "document_types": [
+        "xlsx"
+      ],
+      "security_case": false,
+      "fixture_available": true
+    },
+    {
+      "fixture_id": "012",
+      "name": "update_request",
+      "email_path": "data/emails/012_update_request.eml",
+      "attachment_paths": [
+        "data/attachments/order_update_request.pdf"
+      ],
+      "expected_path": "data/expected/012_update_request.json",
+      "category": "validation",
+      "expected_outcome": "HUMAN_REVIEW",
+      "languages": [
+        "en"
+      ],
+      "document_types": [
+        "pdf"
+      ],
+      "security_case": false,
+      "fixture_available": true
+    },
+    {
+      "fixture_id": "013",
+      "name": "cancel_request",
+      "email_path": "data/emails/013_cancel_request.eml",
+      "attachment_paths": [
+        "data/attachments/order_cancel_request.pdf"
+      ],
+      "expected_path": "data/expected/013_cancel_request.json",
+      "category": "validation",
+      "expected_outcome": "HUMAN_REVIEW",
+      "languages": [
+        "en"
+      ],
+      "document_types": [
+        "pdf"
+      ],
+      "security_case": false,
+      "fixture_available": true
+    },
+    {
+      "fixture_id": "014",
+      "name": "email_attachment_conflict",
+      "email_path": "data/emails/014_email_attachment_conflict.eml",
+      "attachment_paths": [
+        "data/attachments/order_conflict.xlsx"
+      ],
+      "expected_path": "data/expected/014_email_attachment_conflict.json",
+      "category": "ambiguity",
+      "expected_outcome": "HUMAN_REVIEW",
+      "languages": [
+        "en"
+      ],
+      "document_types": [
+        "xlsx"
+      ],
+      "security_case": false,
+      "fixture_available": true
+    },
+    {
+      "fixture_id": "015",
+      "name": "prompt_injection_email",
+      "email_path": "data/emails/015_prompt_injection_email.eml",
+      "attachment_paths": [],
+      "expected_path": "data/expected/015_prompt_injection_email.json",
+      "category": "security",
+      "expected_outcome": "SECURITY_QUARANTINE",
+      "languages": [
+        "en"
+      ],
+      "document_types": [],
+      "security_case": true,
+      "fixture_available": true
+    },
+    {
+      "fixture_id": "016",
+      "name": "prompt_injection_attachment",
+      "email_path": "data/emails/016_prompt_injection_attachment.eml",
+      "attachment_paths": [
+        "data/attachments/order_prompt_injection.pdf"
+      ],
+      "expected_path": "data/expected/016_prompt_injection_attachment.json",
+      "category": "security",
+      "expected_outcome": "SECURITY_QUARANTINE",
+      "languages": [
+        "en"
+      ],
+      "document_types": [
+        "pdf"
+      ],
+      "security_case": true,
+      "fixture_available": true
+    },
+    {
+      "fixture_id": "017",
+      "name": "encrypted_pdf",
+      "email_path": "data/emails/017_encrypted_pdf.eml",
+      "attachment_paths": [
+        "data/attachments/order_encrypted.pdf"
+      ],
+      "expected_path": "data/expected/017_encrypted_pdf.json",
+      "category": "security",
+      "expected_outcome": "SECURITY_QUARANTINE",
+      "languages": [
+        "en"
+      ],
+      "document_types": [
+        "pdf"
+      ],
+      "security_case": true,
+      "fixture_available": true
+    },
+    {
+      "fixture_id": "018",
+      "name": "malformed_pdf",
+      "email_path": "data/emails/018_malformed_pdf.eml",
+      "attachment_paths": [
+        "data/attachments/order_malformed.pdf"
+      ],
+      "expected_path": "data/expected/018_malformed_pdf.json",
+      "category": "parser_failure",
+      "expected_outcome": "CLARIFICATION_REQUIRED",
+      "languages": [
+        "en"
+      ],
+      "document_types": [
+        "pdf"
+      ],
+      "security_case": false,
+      "fixture_available": true
+    },
+    {
+      "fixture_id": "019",
+      "name": "macro_enabled_workbook",
+      "email_path": "data/emails/019_macro_enabled_workbook.eml",
+      "attachment_paths": [],
+      "expected_path": "data/expected/019_macro_enabled_workbook.json",
+      "category": "security",
+      "expected_outcome": "SECURITY_QUARANTINE",
+      "languages": [
+        "en"
+      ],
+      "document_types": [],
+      "security_case": true,
+      "fixture_available": false
+    },
+    {
+      "fixture_id": "020",
+      "name": "extension_mismatch",
+      "email_path": "data/emails/020_extension_mismatch.eml",
+      "attachment_paths": [
+        "data/attachments/order_extension_mismatch.xlsm"
+      ],
+      "expected_path": "data/expected/020_extension_mismatch.json",
+      "category": "security",
+      "expected_outcome": "SECURITY_QUARANTINE",
+      "languages": [
+        "en"
+      ],
+      "document_types": [
+        "xlsm"
+      ],
+      "security_case": true,
+      "fixture_available": true
+    },
+    {
+      "fixture_id": "021",
+      "name": "duplicate_original",
+      "email_path": "data/emails/021_duplicate_original.eml",
+      "attachment_paths": [],
+      "expected_path": "data/expected/021_duplicate_original.json",
+      "category": "duplicate",
+      "expected_outcome": "AUTO_CREATE",
+      "languages": [
+        "en"
+      ],
+      "document_types": [],
+      "security_case": false,
+      "fixture_available": true
+    },
+    {
+      "fixture_id": "022",
+      "name": "duplicate_replay",
+      "email_path": "data/emails/022_duplicate_replay.eml",
+      "attachment_paths": [],
+      "expected_path": "data/expected/022_duplicate_replay.json",
+      "category": "duplicate",
+      "expected_outcome": "DUPLICATE_NOOP",
+      "languages": [
+        "en"
+      ],
+      "document_types": [],
+      "security_case": false,
+      "fixture_available": true
+    },
+    {
+      "fixture_id": "023",
+      "name": "scanned_pdf",
+      "email_path": "data/emails/023_scanned_pdf.eml",
+      "attachment_paths": [
+        "data/attachments/order_scanned.pdf"
+      ],
+      "expected_path": "data/expected/023_scanned_pdf.json",
+      "category": "parser_failure",
+      "expected_outcome": "HUMAN_REVIEW",
+      "languages": [
+        "en"
+      ],
+      "document_types": [
+        "pdf"
+      ],
+      "security_case": false,
+      "fixture_available": true
+    },
+    {
+      "fixture_id": "024",
+      "name": "multisheet_xlsx",
+      "email_path": "data/emails/024_multisheet_xlsx.eml",
+      "attachment_paths": [
+        "data/attachments/order_multisheet.xlsx"
+      ],
+      "expected_path": "data/expected/024_multisheet_xlsx.json",
+      "category": "positive",
+      "expected_outcome": "AUTO_CREATE",
+      "languages": [
+        "en"
+      ],
+      "document_types": [
+        "xlsx"
+      ],
+      "security_case": false,
+      "fixture_available": true
+    },
+    {
+      "fixture_id": "025",
+      "name": "conflicting_customer_identity",
+      "email_path": "data/emails/025_conflicting_customer_identity.eml",
+      "attachment_paths": [
+        "data/attachments/order_customer_conflict.pdf"
+      ],
+      "expected_path": "data/expected/025_conflicting_customer_identity.json",
+      "category": "ambiguity",
+      "expected_outcome": "HUMAN_REVIEW",
+      "languages": [
+        "en"
+      ],
+      "document_types": [
+        "pdf"
+      ],
+      "security_case": false,
+      "fixture_available": true
+    },
+    {
+      "fixture_id": "026",
+      "name": "malformed_business_values",
+      "email_path": "data/emails/026_malformed_business_values.eml",
+      "attachment_paths": [
+        "data/attachments/order_invalid_values.xlsx"
+      ],
+      "expected_path": "data/expected/026_malformed_business_values.json",
+      "category": "ambiguity",
+      "expected_outcome": "CLARIFICATION_REQUIRED",
+      "languages": [
+        "en"
+      ],
+      "document_types": [
+        "xlsx"
+      ],
+      "security_case": false,
+      "fixture_available": true
+    }
+  ]
+}

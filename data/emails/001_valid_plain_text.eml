@@ -1,0 +1,32 @@
+Message-ID: <fixture-001@nordwind-bau.example>
+Date: Tue, 20 Jan 2026 09:00:00 +0000
+From: purchasing@nordwind-bau.example
+To: orders@alpenwerk.example
+Subject: Purchase order PO-2026-001
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="fixture-001-boundary-0"
+
+--fixture-001-boundary-0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hello AlpenWerk team,
+
+Please supply 150 EA of SKU-100 at EUR 4.50 each and 20 BOX of SKU-200 at EUR=
+ 12.00 per box.
+PO: PO-2026-001
+Requested delivery: 10 February 2026.
+
+Regards,
+Mara Beispiel
+Nordwind Bau GmbH
+
+--fixture-001-boundary-0
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+<p>Hello AlpenWerk team,</p><p>Please supply <b>150 EA SKU-100</b> and <b>20 =
+BOX SKU-200</b>.</p><p>PO-2026-001</p>
+
+--fixture-001-boundary-0--

@@ -1,0 +1,46 @@
+[
+  {
+    "order_id": "ORD-HIST-001",
+    "customer_id": "CUST-1001",
+    "purchase_order_reference": "PO-2025-081",
+    "order_date": "2025-11-10",
+    "line_items": [
+      {
+        "sku": "SKU-100",
+        "quantity": 150,
+        "unit": "EA",
+        "unit_price": "4.50",
+        "currency": "EUR"
+      },
+      {
+        "sku": "SKU-200",
+        "quantity": 20,
+        "unit": "BOX",
+        "unit_price": "12.00",
+        "currency": "EUR"
+      }
+    ]
+  },
+  {
+    "order_id": "ORD-HIST-002",
+    "customer_id": "CUST-1001",
+    "purchase_order_reference": "PO-2025-096",
+    "order_date": "2025-12-08",
+    "line_items": [
+      {
+        "sku": "SKU-100",
+        "quantity": 150,
+        "unit": "EA",
+        "unit_price": "4.50",
+        "currency": "EUR"
+      },
+      {
+        "sku": "SKU-200",
+        "quantity": 20,
+        "unit": "BOX",
+        "unit_price": "12.00",
+        "currency": "EUR"
+      }
+    ]
+  }
+]

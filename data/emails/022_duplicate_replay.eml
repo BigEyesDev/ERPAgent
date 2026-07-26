@@ -1,0 +1,10 @@
+Message-ID: <logical-order-po-2026-021@nordwind-bau.example>
+Date: Fri, 30 Jan 2026 21:00:00 +0000
+From: purchasing@nordwind-bau.example
+To: orders@alpenwerk.example
+Subject: PO-2026-021
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+MIME-Version: 1.0
+
+Please supply 10 EA of SKU-100 at EUR 4.50. PO reference PO-2026-021.

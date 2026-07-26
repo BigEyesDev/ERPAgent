@@ -1,0 +1,84 @@
+{
+  "fixture_id": "001",
+  "fixture_name": "valid_plain_text",
+  "description": "Complete English order in a plain-text email",
+  "source_email": "data/emails/001_valid_plain_text.eml",
+  "attachments": [],
+  "fixture_metadata": {
+    "generated": true,
+    "macro_template_required": false
+  },
+  "expected_extraction": {
+    "intent": "create",
+    "language": "en",
+    "customer": {
+      "customer_id": "CUST-1001",
+      "name": "Nordwind Bau GmbH",
+      "match_type": "exact"
+    },
+    "purchase_order_reference": "PO-2026-001",
+    "existing_order_id": null,
+    "requested_delivery_date": "2026-02-10",
+    "line_items": [
+      {
+        "sku": "SKU-100",
+        "quantity": 150,
+        "unit": "EA",
+        "unit_price": "4.50",
+        "currency": "EUR",
+        "source": {
+          "type": "email_body"
+        },
+        "inferred": false,
+        "conflicting_values": []
+      },
+      {
+        "sku": "SKU-200",
+        "quantity": 20,
+        "unit": "BOX",
+        "unit_price": "12.00",
+        "currency": "EUR",
+        "source": {
+          "type": "email_body"
+        },
+        "inferred": false,
+        "conflicting_values": []
+      }
+    ],
+    "ambiguities": [],
+    "security_flags": [],
+    "provenance": {
+      "email": {
+        "type": "email",
+        "file": "001_valid_plain_text.eml",
+        "body": {
+          "type": "email_body"
+        }
+      },
+      "attachments": [],
+      "customer": {
+        "type": "email_body"
+      },
+      "purchase_order_reference": {
+        "type": "email_body"
+      },
+      "line_items": {
+        "type": "email_body"
+      },
+      "requested_delivery_date": {
+        "type": "email_body"
+      }
+    }
+  },
+  "expected_workflow": {
+    "outcome": "AUTO_CREATE",
+    "reason_codes": [
+      "EXACT_CUSTOMER_MATCH",
+      "EXACT_PRODUCT_MATCH",
+      "PRICE_MATCH",
+      "VALID_CREATE_REQUEST"
+    ],
+    "erp_write_allowed": true,
+    "recommended_action": null
+  }
+}
