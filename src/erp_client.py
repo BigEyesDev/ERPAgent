@@ -23,7 +23,6 @@ from src.schema import (
     AuditEvent,
     CreateOrderRequest,
     Customer,
-    ErpLineItem,
     ErpOrder,
     PriceEntry,
     Product,
@@ -48,13 +47,6 @@ class ERPClient:
     def __init__(self, erp_dir: Path | str = DEFAULT_ERP_DIR, *, audit_path: str | Path | None = None):
         erp_dir = Path(erp_dir)
         self._audit_path = audit_path
-        # Public so callers that share this ERPClient (pipeline.py,
-        # graph.py) can route their own top-level audit.record calls to
-        # the same file, rather than silently falling back to
-        # settings.audit_path - a real bug found live: those calls
-        # weren't threading a path at all, so every "pipeline.decision" /
-        # "graph.finalize" audit line was landing in the global default
-        # audit log regardless of what this instance was configured with.
         self.audit_path = audit_path or settings.audit_path
 
         self._customers = {

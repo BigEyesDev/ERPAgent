@@ -5,5 +5,9 @@ __pycache__/
 .ipynb_checkpoints/
 data/audit.jsonl
 data/mlflow.db
+data/live_runs/
 mlruns/
 .pytest_cache/
+slides/
+docs/
+*_Submission.zip

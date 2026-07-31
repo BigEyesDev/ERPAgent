@@ -12,16 +12,13 @@ import zipfile
 from dataclasses import dataclass
 from io import BytesIO
 
-import fitz  # PyMuPDF
+import fitz 
 
 from src.schema import EmailAttachment
 
 ALLOWED_EXTENSIONS = {"pdf", "pptx", "xlsx"}
 MAX_ATTACHMENT_BYTES = 10 * 1024 * 1024
 
-# Macro-enabled OOXML variants are blocked by extension outright, not by
-# content sniffing - a renamed .xlsm/.pptm/.docm is refused before its
-# content is ever inspected.
 MACRO_EXTENSIONS = {"xlsm", "pptm", "docm", "xltm", "potm"}
 
 EXECUTABLE_MAGIC_BYTES = (b"MZ", b"\x7fELF")
@@ -81,9 +78,7 @@ def check_attachment(attachment: EmailAttachment) -> SecurityCheckResult:
     if any(attachment.content.startswith(magic) for magic in EXECUTABLE_MAGIC_BYTES):
         reasons.append("executable file signature detected")
 
-    # Only run the more expensive content-level checks once the cheap
-    # extension/size checks already passed, and only for extensions where
-    # the check is meaningful.
+    # only for extensions where the check is meaningful.
     if not reasons:
         if extension == "pdf" and _is_encrypted_pdf(attachment.content):
             reasons.append("encrypted PDF not allowed")

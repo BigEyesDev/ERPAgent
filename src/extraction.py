@@ -119,25 +119,13 @@ PROMPT_NAME = "extraction_system_prompt"
 
 @lru_cache
 def _ensure_prompt_registered() -> str | None:
-    """Registers `SYSTEM_PROMPT` in MLflow's Prompt Registry, returning its version.
+    """Register `SYSTEM_PROMPT` in MLflow's Prompt Registry and return its version.
 
-    A new version is only created when `SYSTEM_PROMPT`'s text has actually
-    changed since the last registered version - `mlflow.genai.register_prompt`
-    does not deduplicate on its own, so registering unconditionally on
-    every process start (every pytest run, every notebook execution) would
-    mint a fresh, identical version each time. `@lru_cache` means this
-    check runs at most once per process.
-
-    Backed by a local SQLite file (`settings.mlflow_tracking_uri`), not a
-    hosted service - no server, no account, no API key. MLflow's plain
-    filesystem store is deprecated for this feature and refuses to start,
-    which is why this is SQLite rather than `file://`, confirmed live
-    before wiring this in.
-
-    Returns `None` on any failure (e.g. the SQLite file is locked or
-    unwritable) rather than raising - prompt versioning is an
-    observability concern, not a functional requirement, and must never
-    be the reason a real extraction call fails.
+    A new version is created only when the prompt text changes; `@lru_cache`
+    runs this at most once per process. Backed by a local SQLite file
+    (`settings.mlflow_tracking_uri`), so no server or key. Returns `None` on any
+    failure rather than raising, since prompt versioning is observability, not a
+    functional requirement, and must never break a real extraction call.
     """
     try:
         mlflow.set_tracking_uri(settings.mlflow_tracking_uri)

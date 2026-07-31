@@ -1,14 +1,36 @@
 # Email-to-ERP Agentic Workflow
 
+[![tests](https://github.com/BigEyesDev/ERPAgent/actions/workflows/tests.yml/badge.svg)](https://github.com/BigEyesDev/ERPAgent/actions/workflows/tests.yml)
+
 Converts unstructured customer order emails (and their PDF, PPTX, and XLSX
 attachments) into validated ERP orders, keeping the process safe, auditable,
 and controllable. A single email inbox is assumed; the ERP is reached through
 a REST-shaped client that can read master data and create, update, or cancel
 orders.
 
-The walkthrough lives in [notebook/part_b_email_to_erp.ipynb](notebook/part_b_email_to_erp.ipynb),
+The walkthrough lives in [notebook/email_to_erp.ipynb](notebook/email_to_erp.ipynb),
 which imports and runs the modules in `src/` rather than re-implementing any
 logic inline. The same code is unit-tested under `tests/`.
+
+## Results
+
+Measured by `evaluation/evaluate_workflow.py` against 26 fixtures covering
+clean orders, ambiguous/incomplete data, prompt injection, malformed and
+encrypted attachments, and duplicate/replayed messages:
+
+| Metric | Value |
+| --- | --- |
+| Correct-outcome rate | 96.2% (25/26) |
+| **False-auto-approval rate** | **0.0%** |
+| Human-review rate | 42.3% |
+| Clarification rate | 15.4% |
+| Security-quarantine rate | 19.2% |
+
+False-auto-approval rate is the metric that matters most: it is zero across
+every adversarial and malformed fixture in the set, meaning nothing unsafe
+was ever auto-approved. The one miss routes a duplicate order to
+`HUMAN_REVIEW` instead of auto-creating it — a conservative failure, not an
+unsafe one.
 
 ## Design principles
 
@@ -27,6 +49,31 @@ logic inline. The same code is unit-tested under `tests/`.
   `SECURITY_QUARANTINE`, `DUPLICATE_NOOP`, `TECHNICAL_FAILURE`.
 - **Append-only audit trail.** Every stage writes an immutable event, so any
   order can be traced back to the exact source span it came from.
+
+## Flow
+
+```mermaid
+flowchart TD
+    A[Email + attachments] --> B["attachment_security<br/>pre-parse gate"]
+    B -->|flagged| Q[SECURITY_QUARANTINE]
+    B -->|clean| C["parsers<br/>email / PDF / PPTX / XLSX to text"]
+    C --> D["extraction.py<br/>one LLM call to OrderCandidate"]
+    D --> E["entity_resolution<br/>match customer / products"]
+    D --> F["validation<br/>order-consistency checks"]
+    D --> G["duplicate_detection<br/>replay check"]
+    E --> H["risk_gate.decide"]
+    F --> H
+    G --> H
+    H -->|duplicate| N[DUPLICATE_NOOP]
+    H -->|blocking validation issue| R[CLARIFICATION_REQUIRED]
+    H -->|"update/cancel, low confidence,<br/>non-exact match, or warnings"| M[HUMAN_REVIEW]
+    H -->|all clear| AC[AUTO_CREATE]
+    B -.parse/extract failure.-> T[TECHNICAL_FAILURE]
+```
+
+Security and duplicate checks are decided before anything about the order's
+content, so a malicious or already-processed message never reaches the parts
+of the pipeline that would act on it.
 
 ## Layout
 
@@ -54,10 +101,14 @@ data/                     dummy emails, attachments, ERP master data, fixtures
 ```bash
 uv sync                                        # install dependencies
 uv run pytest tests/                           # deterministic core, no LLM calls
-uv run python -m evaluation.evaluate_workflow  # accuracy + safety metric
-uv run jupyter lab notebook/part_b_email_to_erp.ipynb
+uv run python -m evaluation.evaluate_workflow  # accuracy + safety metric (replay, no key)
+uv run python -m evaluation.evaluate_workflow --live   # same, but calls the model
+uv run jupyter lab notebook/email_to_erp.ipynb
 ```
 
-The notebook runs end to end from `data/extraction_cache.json` without a live
-API key. Extracting a fixture not already cached requires `OPENROUTER_API_KEY`
-(see `.env.example`).
+Both the notebook and the evaluation default to **replay**: extractions come
+from `data/extraction_cache.json`, so they run in seconds with no API key and
+print per-fixture progress as they go. Passing `--live` (evaluation) or setting
+`MODE = "live"` (notebook) calls the model through OpenRouter instead, which
+needs a valid `OPENROUTER_API_KEY` (see `.env.example`) and takes a minute or
+two. A live run never overwrites the cache.

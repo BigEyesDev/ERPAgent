@@ -31,9 +31,6 @@ class WorkflowOutcome(StrEnum):
     `risk_gate.py` emits the first six below; `graph.py` can additionally
     promote a human-reviewed run to `EXECUTED_WITH_HUMAN_APPROVAL` once a
     reviewer has explicitly approved it and the ERP write has happened.
-    Deliberately not three (`auto_approve/escalate/reject`): each member
-    implies a different next action, which is what `risk_gate.py` and
-    `graph.py` route on.
     """
 
     AUTO_CREATE = "AUTO_CREATE"
@@ -88,8 +85,7 @@ class LineItem(BaseModel):
 
     `quantity` is nullable on purpose: forcing a numeric value would give
     extraction no way to represent "the sender never actually stated
-    this" other than fabricating one. `None` is a validation concern
-    (`validation.py`'s `MISSING_QUANTITY`), not a schema violation.
+    this" other than fabricating one. 
     """
 
     product_reference: str = Field(description="Product name/SKU as written by the sender")

@@ -408,29 +408,26 @@ def run_email(raw_email_bytes: bytes, graph, *, thread_id: str | None = None) ->
 
 
 def resume_with_human_decision(graph, config: dict, decision: HumanDecision, *, erp: ERPClient) -> dict:
-    """Resumes a paused (`HUMAN_REVIEW`) graph run with a reviewer's decision.
+    """Resume a paused (`HUMAN_REVIEW`) graph run with a reviewer's decision.
 
-    Validates `decision.edited_fields` against the paused state *before*
-    calling `graph.invoke` - a reviewer's free-text edits are untrusted
-    input the same way the LLM's output is. Because validation happens
-    before the interrupt is consumed, an invalid decision never touches
-    the graph: the thread stays paused and genuinely resumable, so the
-    caller can simply call this again with a corrected `HumanDecision`.
+    A reviewer's `edited_fields` are untrusted input, so they are validated
+    against the paused state before `graph.invoke` is called. An invalid edit
+    therefore never touches the graph: the thread stays paused and resumable,
+    and the caller can retry with a corrected `HumanDecision`.
 
     Args:
         graph: The same compiled graph the run was started on.
         config: The `config` returned by `run_email` for that run.
         decision: approve / approve_with_edits / reject / request_clarification / quarantine.
-        erp: The same `ERPClient` instance the graph was built with - used
-            to check an edited `customer_id` actually exists.
+        erp: The `ERPClient` the graph was built with, used to check an edited `customer_id` exists.
 
     Returns:
         The final state after resuming.
 
     Raises:
-        InvalidHumanDecisionError: If `decision.edited_fields` can't be
-            applied (e.g. a non-numeric quantity, an unknown customer_id).
-            The paused thread is unaffected - retry with a corrected decision.
+        InvalidHumanDecisionError: If `edited_fields` can't be applied (e.g. a
+            non-numeric quantity or unknown customer_id). The paused thread is
+            unaffected; retry with a corrected decision.
     """
     state = graph.get_state(config).values
     errors = _describe_edit_errors(decision, state["order"], state["customer_match"], erp, workflow_id=state["workflow_id"])

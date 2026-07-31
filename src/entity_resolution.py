@@ -51,9 +51,11 @@ def resolve_customer(
         workflow_id: Threaded through to the audit trail via `erp`'s own calls.
 
     Returns:
-        An `EntityMatch` - `EXACT`/`DOMAIN` only when unambiguous, `CONFLICT`
-        when name and domain disagree, `FUZZY` on a strong-but-imperfect
-        name/alias match, `NONE` when nothing resolves.
+        An `EntityMatch` :
+        `EXACT`/`DOMAIN` only when unambiguous,
+        `CONFLICT` when name and domain disagree, 
+        `FUZZY` on a strong-but-imperfect name/alias match,
+        `NONE` when nothing resolves.
     """
     customers = erp.list_customers(workflow_id=workflow_id)
     domain = sender_email.rsplit("@", 1)[-1] if "@" in sender_email else ""
@@ -97,9 +99,10 @@ def resolve_product(product_reference: str, erp: ERPClient, *, workflow_id: str)
         workflow_id: Threaded through to the audit trail via `erp`'s own calls.
 
     Returns:
-        An `EntityMatch` for the SKU. `EXACT` on a direct SKU/description/
-        alias hit, `FUZZY` on a strong-but-imperfect text match, `NONE`
-        otherwise - an unresolved product is never silently dropped from
+        An `EntityMatch` for the SKU.
+        `EXACT` on a direct SKU/description/alias hit,
+        `FUZZY` on a strong-but-imperfect text match,
+        `NONE` otherwise i.e. an unresolved product is never silently dropped from
         the order.
     """
     products = erp.list_products(workflow_id=workflow_id)

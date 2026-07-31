@@ -11,13 +11,24 @@ unattended." This is the one number worth actually computing.
 Run from the repo root: `uv run python -m evaluation.evaluate_workflow`
 (module form, not a direct script path - needed so `src` resolves as a
 package regardless of the caller's working directory).
+
+Defaults to **replay** mode: extractions are read from
+`data/extraction_cache.json`, so it runs in seconds with no API key. Pass
+`--live` to call the model through OpenRouter instead (needs a valid
+`OPENROUTER_API_KEY` and takes a minute or two).
 """
 
 from __future__ import annotations
 
+import argparse
 import json
+import os
 from dataclasses import dataclass, field
 from pathlib import Path
+
+# Replay mode makes no live call, but `src.config` still validates that the
+# key exists at import time, so provide a harmless placeholder before importing.
+os.environ.setdefault("OPENROUTER_API_KEY", "replay-mode-no-key-needed")
 
 from src.duplicate_detection import DuplicateDetector
 from src.erp_client import ERPClient
@@ -104,16 +115,33 @@ def evaluate(results: list[PipelineResult], fixture_paths: list[Path]) -> Evalua
     return report
 
 
-def main() -> EvaluationReport:
+def main(*, live: bool = False) -> EvaluationReport:
+    cache_path = REPO_ROOT / "data" / "extraction_cache.json"
+    mode = "live (calling the model)" if live else "replay (cached extractions)"
+    fixture_paths = sorted(EMAILS_DIR.glob("*.eml"))
+    print(f"Evaluating {len(fixture_paths)} fixtures in {mode} mode...\n", flush=True)
+
+    def progress(i: int, n: int, path: Path) -> None:
+        print(f"  [{i:2d}/{n}] {path.stem}", flush=True)
+
     erp = ERPClient(audit_path=REPO_ROOT / "data" / "evaluation_audit.jsonl")
     detector = DuplicateDetector()
-    results = run_fixture_set(EMAILS_DIR, erp, detector)
-    fixture_paths = sorted(EMAILS_DIR.glob("*.eml"))
+    results = run_fixture_set(
+        EMAILS_DIR, erp, detector, use_cache=not live, cache_path=None if live else cache_path, progress=progress
+    )
 
+    print()
     report = evaluate(results, fixture_paths)
     report.print_report()
     return report
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description="Evaluate the email-to-ERP workflow against ground truth.")
+    parser.add_argument(
+        "--live",
+        action="store_true",
+        help="Call the model through OpenRouter instead of the replay cache (needs OPENROUTER_API_KEY).",
+    )
+    args = parser.parse_args()
+    main(live=args.live)

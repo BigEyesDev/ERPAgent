@@ -15,6 +15,7 @@ applying a human-approved update/cancel is a later phase's concern
 from __future__ import annotations
 
 import uuid
+from collections.abc import Callable
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -256,6 +257,7 @@ def run_fixture_set(
     *,
     use_cache: bool = False,
     cache_path: Path | None = None,
+    progress: Callable[[int, int, Path], None] | None = None,
 ) -> list[PipelineResult]:
     """Runs every `.eml` file in `email_dir` through `run_email`, in filename order.
 
@@ -264,8 +266,13 @@ def run_fixture_set(
     inbox being processed end to end, matching the single-inbox
     constraint. `use_cache`/`cache_path` are passed straight
     through to every `run_email` call - see there for what they do.
+    `progress`, if given, is called with `(index, total, path)` before
+    each fixture, for a caller that wants to report progress.
     """
-    return [
-        run_email(path.read_bytes(), erp, duplicate_detector, use_cache=use_cache, cache_path=cache_path)
-        for path in sorted(email_dir.glob("*.eml"))
-    ]
+    paths = sorted(email_dir.glob("*.eml"))
+    results: list[PipelineResult] = []
+    for i, path in enumerate(paths, start=1):
+        if progress is not None:
+            progress(i, len(paths), path)
+        results.append(run_email(path.read_bytes(), erp, duplicate_detector, use_cache=use_cache, cache_path=cache_path))
+    return results
